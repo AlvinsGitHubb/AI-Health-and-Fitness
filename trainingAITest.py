@@ -23,11 +23,6 @@ model.compile(optimizer='adam', loss='mse', metrics=['mae'])#idk if the metrics 
 #Training The Model
 history = model.fit(inputs, outputs, epochs=100, batch_size=32) #validation_data=(X_test, y_test))
 
-#Evaluating the Model
-#loss, mae = model.evaluate(X_test, y_test)
-#print(f"Test Loss: {loss}")
-#print(f"Test MAE: {mae}")
-
 #Using the Model
 new_data = np.array([[2, 2, 2, 4],
                      [3, 2, 0, 5],
