@@ -6,7 +6,7 @@ import numpy as np
 inputs = np.array([...])  # Shape: (num_samples, num_features). This is a 2-d array with rows people and columns information about them (weight, activity level, target weight, etc)
 outputs = np.array([...]) # Shape: (num_samples, ). The current code only outputs one number per person so there is not second part, but I'm pretty sure this can be easily changed to be a 2-d array
 
-#Building the Neural Network Model
+#Building the Neural Network Model. Layers should be edited to be better probably because they suck right now.
 model = models.Sequential([
     layers.Dense(64, activation='relu', input_shape=(inputs.shape[1],)),  # Input layer + first hidden layer
     layers.Dense(32, activation='relu'),  # Second hidden layer
