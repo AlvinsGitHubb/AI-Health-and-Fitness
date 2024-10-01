@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "W:\\GitHub\\Ai Health and Fitness\\AI-Health-and-Fitness\\AIHealthAndFitness\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1868A9EA-490B-4DE3-A8DA-AE0C9BBDA175}|AIHealthAndFitness.pyproj|W:\\GitHub\\Ai Health and Fitness\\AI-Health-and-Fitness\\AIHealthAndFitness\\mySQL.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{1868A9EA-490B-4DE3-A8DA-AE0C9BBDA175}|AIHealthAndFitness.pyproj|solutionrelative:mySQL.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1868A9EA-490B-4DE3-A8DA-AE0C9BBDA175}|AIHealthAndFitness.pyproj|W:\\GitHub\\Ai Health and Fitness\\AI-Health-and-Fitness\\AIHealthAndFitness\\trainingAITest.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{1868A9EA-490B-4DE3-A8DA-AE0C9BBDA175}|AIHealthAndFitness.pyproj|solutionrelative:trainingAITest.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1868A9EA-490B-4DE3-A8DA-AE0C9BBDA175}|AIHealthAndFitness.pyproj|W:\\GitHub\\Ai Health and Fitness\\AI-Health-and-Fitness\\AIHealthAndFitness\\main.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{1868A9EA-490B-4DE3-A8DA-AE0C9BBDA175}|AIHealthAndFitness.pyproj|solutionrelative:main.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1868A9EA-490B-4DE3-A8DA-AE0C9BBDA175}|AIHealthAndFitness.pyproj|W:\\GitHub\\Ai Health and Fitness\\AI-Health-and-Fitness\\AIHealthAndFitness\\AIHealthAndFitness.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{1868A9EA-490B-4DE3-A8DA-AE0C9BBDA175}|AIHealthAndFitness.pyproj|solutionrelative:AIHealthAndFitness.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "mySQL.py",
+              "DocumentMoniker": "W:\\GitHub\\Ai Health and Fitness\\AI-Health-and-Fitness\\AIHealthAndFitness\\mySQL.py",
+              "RelativeDocumentMoniker": "mySQL.py",
+              "ToolTip": "W:\\GitHub\\Ai Health and Fitness\\AI-Health-and-Fitness\\AIHealthAndFitness\\mySQL.py",
+              "RelativeToolTip": "mySQL.py",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAuwBUAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-09-29T19:08:32.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "trainingAITest.py",
+              "DocumentMoniker": "W:\\GitHub\\Ai Health and Fitness\\AI-Health-and-Fitness\\AIHealthAndFitness\\trainingAITest.py",
+              "RelativeDocumentMoniker": "trainingAITest.py",
+              "ToolTip": "W:\\GitHub\\Ai Health and Fitness\\AI-Health-and-Fitness\\AIHealthAndFitness\\trainingAITest.py",
+              "RelativeToolTip": "trainingAITest.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-09-29T19:05:34.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "main.py",
+              "DocumentMoniker": "W:\\GitHub\\Ai Health and Fitness\\AI-Health-and-Fitness\\AIHealthAndFitness\\main.py",
+              "RelativeDocumentMoniker": "main.py",
+              "ToolTip": "W:\\GitHub\\Ai Health and Fitness\\AI-Health-and-Fitness\\AIHealthAndFitness\\main.py",
+              "RelativeToolTip": "main.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-09-29T19:05:33.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AIHealthAndFitness.py",
+              "DocumentMoniker": "W:\\GitHub\\Ai Health and Fitness\\AI-Health-and-Fitness\\AIHealthAndFitness\\AIHealthAndFitness.py",
+              "RelativeDocumentMoniker": "AIHealthAndFitness.py",
+              "ToolTip": "W:\\GitHub\\Ai Health and Fitness\\AI-Health-and-Fitness\\AIHealthAndFitness\\AIHealthAndFitness.py",
+              "RelativeToolTip": "AIHealthAndFitness.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-09-29T19:04:01.282Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
