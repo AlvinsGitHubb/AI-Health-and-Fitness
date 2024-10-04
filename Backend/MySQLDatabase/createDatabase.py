@@ -1,10 +1,9 @@
 from xml.dom.expatbuilder import ParseEscape
 import mysql.connector
+import main
 import MySQLInterface
 
-sqlInterface = MySQLInterface.MySQLInterface("localhost", "root", "*tr5d7Ka9q", "AIHealthAndFitnessDatabase");
-
-sqlInterface.ConnectToDatabase()
+sqlinterface = main.GetSQLInterface()
 
 #Creates a user and gives them an email and password
 #sqlInterface.AddItem("user", ("email", "password"), ("matthiasharvey2006@gmai.com", "password123"))

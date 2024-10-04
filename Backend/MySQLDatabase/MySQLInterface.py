@@ -55,6 +55,20 @@ class MySQLInterface(object):
         results = self.mycursor.fetchone()
         return results
 
+    #Gets all of the data from one item of type tablename
+    def GetItemBasedOnAttribute(self, tableName, attribute, value):
+        sql = "SELECT * FROM " + tableName + " WHERE " + attribute + " = %s"
+        self.mycursor.execute(sql, _id)
+        results = self.mycursor.fetchone()
+        return results
+    
+    #Gets all of the data from one item of type tablename
+    def GetItemBasedOnAttribute(self, tableName, attribute, value):
+        sql = "SELECT * FROM " + tableName + " WHERE " + attribute + " = %s"
+        self.mycursor.execute(sql, _id)
+        results = self.mycursor.fetchall()
+        return results
+
     #Gets an attribute "attribute" from an item in mydb of type tablename
     def GetItemAttribute(self, tableName, attribute, _id):
         sql = "SELECT " + attribute + " FROM "+ tableName + " WHERE id = %s"
