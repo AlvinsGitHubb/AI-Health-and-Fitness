@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "flutter_ui" "\0"
+            VALUE "CompanyName", "com.codeforany" "\0"
+            VALUE "FileDescription", "fitness_workout_app_flutter_3_ui" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "flutter_ui" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "flutter_ui.exe" "\0"
-            VALUE "ProductName", "flutter_ui" "\0"
+            VALUE "InternalName", "fitness_workout_app_flutter_3_ui" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 com.codeforany. All rights reserved." "\0"
+            VALUE "OriginalFilename", "fitness_workout_app_flutter_3_ui.exe" "\0"
+            VALUE "ProductName", "fitness_workout_app_flutter_3_ui" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

@@ -15,5 +15,10 @@ import io.flutter.embedding.engine.FlutterEngine;
 public final class GeneratedPluginRegistrant {
   private static final String TAG = "GeneratedPluginRegistrant";
   public static void registerWith(@NonNull FlutterEngine flutterEngine) {
+    try {
+      flutterEngine.getPlugins().add(new com.example.simple_aniatiom_progress_bar.simple_animation_progress_bar.SimpleAnimationProgressBarPlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin simple_animation_progress_bar, com.example.simple_aniatiom_progress_bar.simple_animation_progress_bar.SimpleAnimationProgressBarPlugin", e);
+    }
   }
 }

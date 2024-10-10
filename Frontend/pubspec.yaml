@@ -1,19 +1,41 @@
-name: flutter_ui
-description: "A new Flutter project."
-publish_to: 'none'
-version: 0.1.0
+name: fitness
+description: A new Flutter project.
+
+version: 1.0.0+1
 
 environment:
-  sdk: ^3.5.3
+  sdk: '>=2.19.6 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
+  cupertino_icons: ^1.0.2
+  carousel_slider: ^5.0.0
+  fl_chart: ^0.69.0
+  simple_animation_progress_bar: ^1.6.0
+  dotted_dashed_line: ^0.0.3
+  simple_circular_progress_bar: ^1.0.2
+  animated_toggle_switch: ^0.8.3
+  readmore: ^3.0.0
+  calendar_agenda: ^0.0.2+3
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/img/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/font/Poppins-Regular.ttf
+        - asset: assets/font/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/font/Poppins-Bold.ttf
+          weight: 700

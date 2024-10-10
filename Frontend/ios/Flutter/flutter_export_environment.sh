@@ -1,12 +1,12 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=/Users/laasyakongurootu/Documents/AIM/flutter"
-export "FLUTTER_APPLICATION_PATH=/Users/laasyakongurootu/Documents/AIM/flutter_ui"
+export "FLUTTER_ROOT=/Users/alvinmathew/flutter"
+export "FLUTTER_APPLICATION_PATH=/Users/alvinmathew/Downloads/projects/UIFlutter/fitness_workout_app_flutter_3_ui"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_TARGET=lib/main.dart"
 export "FLUTTER_BUILD_DIR=build"
-export "FLUTTER_BUILD_NAME=0.1.0"
-export "FLUTTER_BUILD_NUMBER=0.1.0"
+export "FLUTTER_BUILD_NAME=1.0.0"
+export "FLUTTER_BUILD_NUMBER=1"
 export "DART_OBFUSCATION=false"
 export "TRACK_WIDGET_CREATION=true"
 export "TREE_SHAKE_ICONS=false"
