@@ -13,5 +13,3 @@ for item in data:  # Assuming 'data' is a list of dictionaries
 #Step 3: Save the modified data back to the file
 with open('gymrecommendations.json', 'w') as file:
     json.dump(data, file, indent=4)  # Nice formatting with that indent, bro
-
-print("Columns removed and data saved, dude!")
