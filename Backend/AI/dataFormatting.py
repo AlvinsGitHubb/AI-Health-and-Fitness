@@ -11,22 +11,34 @@ with open('gymrecommendations.json', 'r') as file:
 #Step 3: Save the modified data back to the file
 #with open('gymrecommendations.json', 'w') as file:
 #    json.dump(data, file, indent=4)
+valuesToOneHotEncode = ['Sex', 'Fitness Goal', 'Fitness Type', 'Exercises', 'Equipment', 'Diet']
 
-json_data = data[0]
+final_result = []
+j = 0
 
-# Load the JSON into a DataFrame
-df = pd.DataFrame([json_data])
+for json_data in data:
 
-# One-hot encode the 'Sex' column
-one_hot_encoded = pd.get_dummies(df['Sex'])
+    # Load the JSON into a DataFrame
+    df = pd.DataFrame([json_data])
 
-# Add the one-hot encoded columns to your DataFrame
-df = pd.concat([df, one_hot_encoded], axis=1)
+    for value in valuesToOneHotEncode:
+        one_hot_encoded = pd.get_dummies(df[value], prefix=value)
 
-json_result = df.to_json(orient='records', indent=4)
+        col_index = df.columns.get_loc(value)
+
+        df = df.drop(columns=[value])
+
+        for i, col in enumerate(one_hot_encoded.columns):
+            df.insert(col_index + i, col, one_hot_encoded[col])
+
+    #json_result = df.to_json(orient='records', indent=4)
+    #final_result += json_result
+    final_result.append(df.to_dict(orient='records')[0])  # Convert to dictionary and take the first entry
+    j += 1
+    print(j)
 
 # Check it out
 #print(one_hot_encoded)
 
 with open('oneHotEncodedGymRecommendations.json', 'w') as file:
-    json.dump(json_result, file, indent=4)
+    json.dump(final_result, file, indent=4)
