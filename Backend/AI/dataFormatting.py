@@ -1,20 +1,32 @@
 import json
+import pandas as pd
 
 #Step 1: Open the file and load the JSON data
 with open('gymrecommendations.json', 'r') as file:
     data = json.load(file)
 
-#types_ = []
-itemName = "Exercises"
-for item in data:  # Assuming 'data' is a list of dictionaries
-    #if item[itemName] not in types_:
-        #types_.append(item[itemName])
-        #print(item[itemName])
-    if item[itemName] == 'Squats, deadlifts, bench presses, and overhead presses':
-        item[itemName] = 0
-    else:
-        item[itemName] = 1
+#for item in data:  # Assuming 'data' is a list of dictionaries
+    
 
 #Step 3: Save the modified data back to the file
-with open('gymrecommendations.json', 'w') as file:
-    json.dump(data, file, indent=4)
+#with open('gymrecommendations.json', 'w') as file:
+#    json.dump(data, file, indent=4)
+
+json_data = data[0]
+
+# Load the JSON into a DataFrame
+df = pd.DataFrame([json_data])
+
+# One-hot encode the 'Sex' column
+one_hot_encoded = pd.get_dummies(df['Sex'])
+
+# Add the one-hot encoded columns to your DataFrame
+df = pd.concat([df, one_hot_encoded], axis=1)
+
+json_result = df.to_json(orient='records', indent=4)
+
+# Check it out
+#print(one_hot_encoded)
+
+with open('oneHotEncodedGymRecommendations.json', 'w') as file:
+    json.dump(json_result, file, indent=4)
