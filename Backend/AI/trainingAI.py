@@ -7,7 +7,12 @@ import datetime
 import os
 
 input_columns = ['Sex_Male', 'Sex_Female', 'Age', 'Height', 'Weight', 'Diabetes', 'Fitness Goal_Weight Loss', 'Fitness Goal_Weight Gain']
-output_columns = ['Fitness Type_Muscular Fitness', 'Fitness Type_Cardio Fitness']
+#For Fitness Type: output_columns = ['Fitness Type_Muscular Fitness', 'Fitness Type_Cardio Fitness']
+output_columns = ['Exercises_Squats, deadlifts, bench presses, and overhead presses', 
+                  'Exercises_Squats, yoga, deadlifts, bench presses, and overhead presses', 
+                  'Exercises_Brisk walking, cycling, swimming, running , or dancing.',
+                  'Exercises_Walking, Yoga, Swimming.',
+ 	              'Exercises_brisk walking, cycling, swimming, or dancing.']
 #Array of the names of colums to have in input
 #Read Json file
 #Iterate through values in 2darray file and make a new Json file but only including the columns in the origional array
@@ -59,6 +64,7 @@ if len(inputs.shape) == 1:
     inputs = inputs.reshape(-1, len(input_columns))
 
 print(f"Shape of inputs: {inputs.shape}")
+print(f"Shape of outputs: {outputs.shape}")
 
 input_1 = Input(shape=(inputs.shape[1],))
 x = Dense(64, activation='relu')(input_1)
@@ -72,7 +78,7 @@ model = Model(inputs=input_1, outputs=output)
 
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
-history= model.fit(inputs, outputs, epochs=25, batch_size=32, validation_split=0.2)
+history= model.fit(inputs, outputs, epochs=150, batch_size=32, validation_split=0.2)
 
 #new_data = np.array([[2, 2, 2, 4],
  #                    [3, 2, 0, 5],
