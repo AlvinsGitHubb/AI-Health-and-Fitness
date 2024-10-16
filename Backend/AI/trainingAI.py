@@ -4,7 +4,7 @@ from tensorflow.keras.layers import Dense
 import numpy as np
 import json
 import datetime
-import os
+from tensorflow.keras.metrics import Precision
 
 input_columns = ['Sex_Male', 'Sex_Female', 'Age', 'Height', 'Weight', 'Diabetes', 'Fitness Goal_Weight Loss', 'Fitness Goal_Weight Gain']
 #output_columns = ['Fitness Type_Muscular Fitness', 'Fitness Type_Cardio Fitness']
@@ -92,18 +92,18 @@ print(f"Shape of inputs: {inputs.shape}")
 print(f"Shape of outputs: {outputs.shape}")
 
 input_1 = Input(shape=(inputs.shape[1],))
-x = Dense(64, activation='relu')(input_1)
-x = Dense(32, activation='relu')(x)
-x = Dense(16, activation='relu')(x)#16 normally
-x = Dense(8, activation='relu')(x)#8 normally
+x = Dense(256, activation='relu')(input_1)
+x = Dense(128, activation='relu')(x)
+x = Dense(64, activation='relu')(x)#16 normally
+x = Dense(32, activation='relu')(x)#8 normally
 
 output = Dense(outputs.shape[1], activation='softmax')(x)#normally softmax, could be sigmoid
 
 model = Model(inputs=input_1, outputs=output)
 
-model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])# normally categorical_crossentropy, could be binary_crossentropy
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy', 'Recall', Precision()])# normally categorical_crossentropy, could be binary_crossentropy
 
-history= model.fit(inputs, outputs, epochs=100, batch_size=32, validation_split=0.2)
+history = model.fit(inputs, outputs, epochs=25, batch_size=32, validation_split=0.2)
 
 #new_data = np.array([[2, 2, 2, 4],
  #                    [3, 2, 0, 5],
@@ -115,11 +115,20 @@ history= model.fit(inputs, outputs, epochs=100, batch_size=32, validation_split=
 #print(f"Predicted Output: {predictions}")
 
 timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-model_save_path = f"W:\\GitHub\\Ai Health and Fitness\\AI-Health-and-Fitness\\Backend\\AI\\fitness_model_{timestamp}"
+model_save_path = f"W:/GitHub/Ai Health and Fitness/AI-Health-and-Fitness/Backend/AI/fitness_model_{timestamp}"
 print(model_save_path)
 
-model.export(str(model_save_path))
+model.export(model_save_path)
 
 #loaded_model = tf.keras.models.load_model(f"{model_save_path}//saved_model.pb")
 predictions = model.predict(inputs)
 print(f"Predicted Output: {predictions}")
+
+"""import matplotlib.pyplot as plt
+
+plt.plot(history.history['Recall'], label='Recall')
+plt.plot(history.history['loss'], label='loss')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.legend()
+plt.show()"""
