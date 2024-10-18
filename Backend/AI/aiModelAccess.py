@@ -9,8 +9,8 @@ def LoadModel(modelName):
     current_file_path = Path(__file__).resolve()
     current_directory = current_file_path.parent
 
-    model_save_path = f"{str(current_directory)}\{modelName}"
-    reloaded_model = tf.saved_model.load(f"{model_save_path}")
+    model_save_path = f"{str(current_directory)}\{modelName}.keras"
+    reloaded_model = tf.keras.models.load_model(model_save_path, custom_objects=None, compile=True, safe_mode=True)
     return reloaded_model
 
 def GetWorkoutType(userData):
