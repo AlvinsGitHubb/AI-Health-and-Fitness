@@ -21,11 +21,11 @@ sqlInterface.ConnectToDatabase()
 #IMPORTANT: ONLY RUN THE BELOW CODE ONCE TO CREATE THE DATABASE
 #def CreateDatabase():
 #mydb = mysql.connector.connect(
-        #host="localhost",
-       # user="root",
-        #password="*tr5d7Ka9q",
-        #database="AIHealthAndFitnessDatabase2"
-   # )
+#        host="localhost",
+#        user="root",
+#        password="*tr5d7Ka9q",
+#        database="AIHealthAndFitnessDatabase2"
+#    )
 #sqlInterface = mydb.cursor()
 
 #sqlInterface.execute("CREATE DATABASE AIHealthAndFitnessDatabase2")
@@ -36,6 +36,6 @@ sqlInterface.ConnectToDatabase()
 #sqlInterface.execute("CREATE TABLE exercises (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), type VARCHAR(255), bodyPart VARCHAR(255), equipment VARCHAR(255))")
 #sqlInterface.execute("CREATE TABLE workoutSets (id INT AUTO_INCREMENT PRIMARY KEY, workoutId INT, FOREIGN KEY (workoutID) REFERENCES workouts(id), exerciseID INT, FOREIGN KEY (exerciseID) REFERENCES exercises(id), reps INT, weight INT)")
 
-#sqlInterface.execute("CREATE TABLE interactionLogs (id INT AUTO_INCREMENT PRIMARY KEY, userID INT, FOREIGN KEY (userID) REFERENCES user(id),message VARCHAR(255), response VARCHAR(255), dateAndTime DATETIME)")
+#sqlInterface.execute("CREATE TABLE interactionLogs (id INT AUTO_INCREMENT PRIMARY KEY, userID INT, FOREIGN KEY (userID) REFERENCES users(id),message VARCHAR(255), response VARCHAR(255), dateAndTime DATETIME)")
 
 #sqlInterface.execute("CREATE TABLE meals (id INT AUTO_INCREMENT PRIMARY KEY, userID INT,FOREIGN KEY (userID) REFERENCES users(id), mealType VARCHAR(255), calories INT, protien INT, carbs INT, fat INT, date DATE)")
