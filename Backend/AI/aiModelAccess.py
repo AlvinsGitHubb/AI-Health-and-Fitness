@@ -10,8 +10,8 @@ def LoadModel(modelName):
     current_directory = current_file_path.parent
 
     model_save_path = f"{str(current_directory)}\{modelName}"
-    reloaded_artifact = tf.saved_model.load(f"{model_save_path}")
-    return reloaded_artifact
+    reloaded_model = tf.saved_model.load(f"{model_save_path}")
+    return reloaded_model
 
 def GetWorkoutType(userData):
     model = LoadModel("fitnessTypeModel")
