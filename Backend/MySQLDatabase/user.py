@@ -22,3 +22,30 @@ def GetUserAttributes(sqlInterface, userId):
 def GetUserAttribute(sqlInterface, attribute, userId):
     _attribute = sqlInterface.GetItemAttribute("users", attribute, userId)
     return _attribute
+
+def GetUserAttributesForAI(sqlInterface, userId):
+    _attributes = sqlInterface.GetItemAttributes("users", ("Sex", "Age", "Height", "Weight", "Diabetes", "Fitness Goal"), userId)
+    OHEData = GetOneHotEncodedVersionOfUserData(_attributes)
+    return OHEData
+
+def GetOneHotEncodedVersionOfUserData(userData):
+    OHEUserData = []
+    if userData[0] == 1: # 1 is male
+        OHEUserData.append(True)
+        OHEUserData.append(False)
+    else:
+        OHEUserData.append(False)
+        OHEUserData.append(True)
+
+    for x in range(1, 5):
+        OHEUserData.append(userData[x])
+
+    
+    if userData[5] == 0: # 0 is loose weight
+        OHEUserData.append(True)
+        OHEUserData.append(False)
+    else:
+        OHEUserData.append(False)
+        OHEUserData.append(True)
+
+    return OHEUserData

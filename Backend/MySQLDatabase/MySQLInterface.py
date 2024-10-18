@@ -4,7 +4,7 @@ import mysql.connector
 class MySQLInterface(object):
 
     def __init__(self, _host, _user, _password, _database):
-        self.host = _host #The server’s IP address or domain name
+        self.host = _host #The serverï¿½s IP address or domain name
         self.user = _user #The host's username
         self.password = _password #The host's password
         self.database = _database # The name of the database being accessed
@@ -75,6 +75,16 @@ class MySQLInterface(object):
         self.mycursor.execute(sql)
         myresult = self.mycursor.fetchone()
         return myresult
+
+    def GetItemAttributes(self, tableName, attributes, id_):
+       attributeList = f"{attributes[0]}"
+       for x in range(len(columns) - 1):
+           x = x + 1
+           attributeList += ", " + attributes[x]
+       sql = f"SELECT {attributeList} FROM {tableName} WHERE id = {id_}"
+       self.mycursor.execute(sql)
+       myresult = self.mycursor.fetchall()
+       return myresult
 
     def GetLastInsertId(self):
        self.mycursor.execute("SELECT LAST_INSERT_ID()")
