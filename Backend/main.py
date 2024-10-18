@@ -74,3 +74,5 @@ if userId != -1:
         _meals = mealManager.GetMeals(sqlInterface, userId)
         for x in _meals:
             print(x)
+    elif option == "6":
+        
