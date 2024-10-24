@@ -83,7 +83,7 @@ class MySQLInterface(object):
            attributeList += ", " + attributes[x]
        sql = f"SELECT {attributeList} FROM {tableName} WHERE id = {id_}"
        self.mycursor.execute(sql)
-       myresult = self.mycursor.fetchall()
+       myresult = self.mycursor.fetchone()
        return myresult
 
     def GetLastInsertId(self):
