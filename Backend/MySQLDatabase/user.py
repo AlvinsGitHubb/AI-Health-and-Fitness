@@ -24,7 +24,7 @@ def GetUserAttribute(sqlInterface, attribute, userId):
     return _attribute
 
 def GetUserAttributesForAI(sqlInterface, userId):
-    _attributes = sqlInterface.GetItemAttributes("users", ("Sex", "Age", "Height", "Weight", "Diabetes", "Fitness Goal"), userId)
+    _attributes = sqlInterface.GetItemAttributes("users", ("sex", "age", "height", "weight", "diabetes", "fitnessGoal"), userId)
     OHEData = GetOneHotEncodedVersionOfUserData(_attributes)
     return OHEData
 
