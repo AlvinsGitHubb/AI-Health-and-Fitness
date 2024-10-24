@@ -1,4 +1,4 @@
-library calendar_agenda;
+library;
 
 export 'src/typedata.dart';
 export 'src/calendar.dart';

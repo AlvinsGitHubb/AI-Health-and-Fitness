@@ -42,7 +42,7 @@ class CalendarAgenda extends StatefulWidget implements PreferredSizeWidget {
   final List<DateTime>? events;
 
   CalendarAgenda({
-    Key? key,
+    super.key,
     required this.initialDate,
     required this.firstDate,
     required this.lastDate,
@@ -83,8 +83,7 @@ class CalendarAgenda extends StatefulWidget implements PreferredSizeWidget {
         assert(
           !firstDate.isAfter(lastDate),
           'lastDate must be on or after firstDate',
-        ),
-        super(key: key);
+        );
 
   @override
   CalendarAgendaState createState() => CalendarAgendaState();
