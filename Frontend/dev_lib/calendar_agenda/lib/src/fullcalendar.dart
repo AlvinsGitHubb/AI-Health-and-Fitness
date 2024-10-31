@@ -20,7 +20,7 @@ class FullCalendar extends StatefulWidget {
   final Function onDateChange;
 
   const FullCalendar({
-    Key? key,
+    super.key,
     this.endDate,
     required this.startDate,
     required this.padding,
@@ -34,7 +34,7 @@ class FullCalendar extends StatefulWidget {
     this.selectedDate,
     this.fullCalendarDay,
     this.calendarScroll,
-  }) : super(key: key);
+  });
   @override
   _FullCalendarState createState() => _FullCalendarState();
 }
