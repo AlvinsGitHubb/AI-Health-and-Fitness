@@ -1,5 +1,5 @@
 from openai import OpenAI
-client = OpenAI(api_key="API Key here")
+client = OpenAI(api_key="")
 
 
 def MessageChatBot(message):
@@ -15,3 +15,7 @@ def MessageChatBot(message):
     )
 
     return completion.choices[0].message
+
+def GetWorkoutRecommendation(workoutType, exercises):
+    input = f"Create a workout plan for the user with workout type: {workoutType} and including {exercises} and others like it."
+    return MessageChatBot(input)

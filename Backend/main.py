@@ -80,7 +80,11 @@ if userId != -1:
             print("Not yet implimented")
         elif option == "7":
             userData = user.GetUserAttributesForAI(sqlInterface, userId)
-            print(userData)
+            workoutType = aiModelAccess.GetWorkoutType(userData)
+            exercises = aiModelAccess.GetExercises(userData)
+            print(f"{workoutType}, {exercises}")
+            recommendation = openAPIIntegration.GetWorkoutRecommendation(workoutType, exercises)
+            print(recommendation.content)
         elif option == "8":
             print("Not yet implemented")
         elif option == "9":
