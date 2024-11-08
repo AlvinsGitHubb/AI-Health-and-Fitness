@@ -34,7 +34,7 @@ sqlInterface.ConnectToDatabase()
 
 #sqlInterface.execute("CREATE TABLE workouts (id INT AUTO_INCREMENT PRIMARY KEY, userId INT,FOREIGN KEY (userID) REFERENCES users(id), workoutType VARCHAR(255), caloriesBurned INT, duration TIME, date DATE)")
 #sqlInterface.execute("CREATE TABLE exercises (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), type VARCHAR(255), bodyPart VARCHAR(255), equipment VARCHAR(255))")
-#sqlInterface.execute("CREATE TABLE workoutSets (id INT AUTO_INCREMENT PRIMARY KEY, workoutId INT, FOREIGN KEY (workoutID) REFERENCES workouts(id), exerciseID INT, FOREIGN KEY (exerciseID) REFERENCES exercises(id), reps INT, weight INT)")
+#sqlInterface.execute("CREATE TABLE workoutSets (id INT AUTO_INCREMENT PRIMARY KEY, workoutName VARCHAR(255), exerciseID INT, FOREIGN KEY (exerciseID) REFERENCES exercises(id), reps INT, weight INT)")
 
 #sqlInterface.execute("CREATE TABLE interactionLogs (id INT AUTO_INCREMENT PRIMARY KEY, userID INT, FOREIGN KEY (userID) REFERENCES users(id),message VARCHAR(255), response VARCHAR(255), dateAndTime DATETIME)")
 

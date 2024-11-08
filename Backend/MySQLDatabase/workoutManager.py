@@ -14,13 +14,12 @@ def GetWorkouts(sqlInterface, userId):
     workouts = []
     for x in _workouts:
         _sets = GetSets(sqlInterface, x[0])
-        if _sets is None:
-            _sets = []
         workouts.append((x, _sets))
     return workouts #This is a list where the first value (workouts[0]) is the wokrout details and the second value (workouts[1]) is a list of workout set details
 
 def GetSets(sqlInterface, workoutId):
     _sets = sqlInterface.GetItemsBasedOnAttribute("workoutSets", "workoutId", workoutId)
+    return _sets
 
 def CalculateCaloriesBurned(workoutType, duration):
     print("This hasn't been implemented yet")
