@@ -18,7 +18,7 @@ exercisesArray = ['Exercises_Squats, deadlifts, bench presses, and overhead pres
 def LoadModel(modelName):
     current_file_path = Path(__file__).resolve()
     current_directory = current_file_path.parent
-    model_save_path = f"{str(current_directory)}\\{modelName}.keras"
+    model_save_path = Path.joinpath(current_directory, f"{modelName}.keras")
     
     reloaded_model = load_model(f"{model_save_path}")
     return reloaded_model

@@ -77,7 +77,9 @@ if userId != -1:
             for x in _meals:
                 print(x)
         elif option == "6":
-            print("Not yet implimented")
+            userMessage = input("What would you like to say to the chat bot?: ")
+            chatBotMessage = openAPIIntegration.MessageChatBot(userMessage)
+            print(chatBotMessage)
         elif option == "7":
             userData = user.GetUserAttributesForAI(sqlInterface, userId)
             workoutType = aiModelAccess.GetWorkoutType(userData)
