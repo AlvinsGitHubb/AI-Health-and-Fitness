@@ -1,4 +1,3 @@
-from asyncio.windows_events import NULL
 from MySQLDatabase import user, MySQLInterface, workoutManager, mealManager
 from AI import aiModelAccess, openAPIIntegration
 from datetime import datetime, timedelta
@@ -48,7 +47,7 @@ if userId != -1:
             sets = []
             while True:
                 print("Adding a set.")
-                exerciseId = input("Enter an exerciseId: ")
+                exerciseId = input("Enter the name pf the exercise: ")
                 reps = input("How many reps did you do?: ")
                 weight = input ("How much weight did you use?: ")
                 sets.append((exerciseId, reps, weight))
@@ -56,12 +55,15 @@ if userId != -1:
                 if cont == "0":
                     break
 
-            workoutManager.LogWorkout(sqlInterface, userId, workoutType, 0, duration, date, sets)
+            duration_in_seconds = int(duration) * 60
+            formatted_duration = str(timedelta(seconds=duration_in_seconds))
+
+            workoutManager.LogWorkout(sqlInterface, userId, workoutType, 0, formatted_duration, date, sets)
         elif option == "3":
             _workouts = workoutManager.GetWorkouts(sqlInterface, userId)
             for x in _workouts:
                 print(x[0])
-                if x[1] != NULL:
+                if x[1] is not None:
                     for y in x[1]:
                         print(y)
         elif option == "4":
@@ -77,14 +79,17 @@ if userId != -1:
             for x in _meals:
                 print(x)
         elif option == "6":
-            print("Not yet implimented")
+            userMessage = input("What would you like to say to the chat bot?: ")
+            chatBotMessage = openAPIIntegration.MessageChatBot(userMessage)
+            print(chatBotMessage)
         elif option == "7":
             userData = user.GetUserAttributesForAI(sqlInterface, userId)
             workoutType = aiModelAccess.GetWorkoutType(userData)
             exercises = aiModelAccess.GetExercises(userData)
+            lastExcercise = input("What exercise did you just do?: ")
             print(f"{workoutType}, {exercises}")
-            recommendation = openAPIIntegration.GetWorkoutRecommendation(workoutType, exercises)
-            print(recommendation.content)
+            recommendation = openAPIIntegration.GetWorkoutRecommendation(workoutType, exercises, lastExcercise, sqlInterface, userId)
+            print(recommendation)
         elif option == "8":
             print("Not yet implemented")
         elif option == "9":
