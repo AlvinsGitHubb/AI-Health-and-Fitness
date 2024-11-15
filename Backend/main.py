@@ -3,7 +3,7 @@ from AI import aiModelAccess, openAPIIntegration
 #from datetime import datetime, timedelta
 
 # Set up the MySQL interface
-sqlInterface = MySQLInterface.MySQLInterface("localhost", "root", "Alvin2003$", "AIHealthAndFitnessDatabase2")
+sqlInterface = MySQLInterface.MySQLInterface("localhost", "root", "*tr5d7Ka9q", "AIHealthAndFitnessDatabase2")
 sqlInterface.ConnectToDatabase()
 
 # Testing code for creating and logging in a user
@@ -85,6 +85,11 @@ if userId != -1:
             recommendation = openAPIIntegration.GetWorkoutRecommendation(workoutType, exercises, lastExcercise, sqlInterface, userId)
             print(recommendation)
         elif option == "8":
-            print("Not yet implemented")
+            cuisine = input("What type of cuisine do you want?: ")
+            dietaryRestrictions = input("What dietary restrictions do you have?: ")
+            ingredients = input("Are there any ingredients that you want?: ")
+            fitnessGoal = user.GetUserAttribute(sqlInterface, "fitnessGoal", userId)
+            recommendation = openAPIIntegration.GetMealRecommendation(cuisine, dietaryRestrictions, ingredients, fitnessGoal)
+            print(recommendation)
         elif option == "9":
             break

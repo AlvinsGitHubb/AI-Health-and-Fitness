@@ -12,7 +12,7 @@ db = MySQLInterface("localhost", "your_username", "your_password", "your_databas
 db.ConnectToDatabase()
 
 # User Login API endpoint
-@app.route('/api/user/login', methods=['POST'])
+@app.route('/api/user/login_user', methods=['POST'])
 def login_user():
     data = request.json
     try:
@@ -25,7 +25,7 @@ def login_user():
         return jsonify({"error": str(e)}), 500
 
 # User Account Creation API endpoint
-@app.route('/api/user/create', methods=['POST'])
+@app.route('/api/user/create_account', methods=['POST'])
 def create_account():
     data = request.json
     try:
