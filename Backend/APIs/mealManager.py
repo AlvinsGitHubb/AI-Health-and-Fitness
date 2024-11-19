@@ -1,24 +1,29 @@
+from MySQLDatabase import MySQLInterface, mealManager
+
+db = MySQLInterface("localhost", "your_username", "your_password", "your_database")
+db.ConnectToDatabase()
+
 # mealManager.py
 class MealManager:
     @staticmethod
     def add_meal(data):
         # Simulate adding a meal recommendation
-        meal = {
-            "id": 1,
-            "name": data.get("name", "Balanced Meal"),
-            "calories": data.get("calories", 500),
-            "protein": data.get("protein", 30),
-            "carbs": data.get("carbs", 50),
-            "fats": data.get("fats", 15),
-            "notes": data.get("notes", "Recommended meal based on dietary needs.")
-        }
-        return {"status": "Meal added", "meal": meal}
+        #sqlInterface, userId, mealType, calories, protien, carbs, fat, date
+        userId = data.get("userId")
+        mealType = data.get("mealType")
+        calories = data.get("calories")
+        protien = data.get("protein")
+        carbs = data.get("carbs")
+        fats = data.get("fats")
+        date = data.get("date")
+        
+        mealManager.LogMeal(db, userId, mealType, calories, protien, carbs, fats, date)
+
+        return {"status": "Meal added"}
 
     @staticmethod
-    def get_all_meals():
+    def get_all_meals(data):
         # Simulate retrieving meals
-        meals = [
-            {"id": 1, "name": "Salad with Grilled Chicken", "calories": 400},
-            {"id": 2, "name": "Pasta Primavera", "calories": 600}
-        ]
+        userId = data.get("userId")
+        meals = mealManager.GetMeals(db, userId)
         return meals
