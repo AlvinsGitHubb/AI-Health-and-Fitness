@@ -1,4 +1,5 @@
-from . import MySQLInterface
+from .MySQLInterface import MySQLInterface
+
 
 def Login(sqlInterface, email, password): #This might check if the username and password are correct but it also might not idk.
     users = sqlInterface.GetTable("users")

@@ -1,6 +1,17 @@
-from MySQLDatabase import MySQLInterface, workoutManager
+# workoutManager.py
 
-db = MySQLInterface("localhost", "your_username", "your_password", "your_database")
+# Correct imports
+from MySQLDatabase.MySQLInterface import MySQLInterface
+from MySQLDatabase.user import Login, CreateAccount
+from APIs.config import DATABASE_CONFIG
+
+
+db = MySQLInterface(
+    DATABASE_CONFIG["host"],
+    DATABASE_CONFIG["user"],
+    DATABASE_CONFIG["password"],
+    DATABASE_CONFIG["database"]
+)
 db.ConnectToDatabase()
 
 # workoutManager.py
@@ -17,7 +28,7 @@ class WorkoutManager:
         date = data.get("date")
         sets = data.get("sets")
 
-        workoutManager.LogWorkout(db, userId, workoutType, caloriesBurned, duration, date, sets)
+        WorkoutManager.LogWorkout(db, userId, workoutType, caloriesBurned, duration, date, sets)
 
         return {"status": "Workout added"}
 
@@ -25,5 +36,5 @@ class WorkoutManager:
     def get_all_workouts(data):
         # Simulate retrieving workouts
         userId = data.get("userId")
-        meals = workoutManager.GetWorkouts(db, userId)
+        meals = WorkoutManager.GetWorkouts(db, userId)
         return meals

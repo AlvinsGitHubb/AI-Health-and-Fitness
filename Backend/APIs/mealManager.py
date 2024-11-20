@@ -1,29 +1,57 @@
-from MySQLDatabase import MySQLInterface, mealManager
+# mealManager.py
 
-db = MySQLInterface("localhost", "your_username", "your_password", "your_database")
+from MySQLDatabase.MySQLInterface import MySQLInterface
+from APIs.config import DATABASE_CONFIG
+
+# Initialize database connection
+db = MySQLInterface(
+    DATABASE_CONFIG["host"],
+    DATABASE_CONFIG["user"],
+    DATABASE_CONFIG["password"],
+    DATABASE_CONFIG["database"]
+)
 db.ConnectToDatabase()
 
-# mealManager.py
 class MealManager:
     @staticmethod
     def add_meal(data):
-        # Simulate adding a meal recommendation
-        #sqlInterface, userId, mealType, calories, protien, carbs, fat, date
+        """
+        Adds a meal to the database.
+        """
         userId = data.get("userId")
         mealType = data.get("mealType")
         calories = data.get("calories")
-        protien = data.get("protein")
+        protein = data.get("protein")  # Fixed typo: 'protien' to 'protein'
         carbs = data.get("carbs")
         fats = data.get("fats")
         date = data.get("date")
         
-        mealManager.LogMeal(db, userId, mealType, calories, protien, carbs, fats, date)
-
+        MealManager.log_meal(db, userId, mealType, calories, protein, carbs, fats, date)
         return {"status": "Meal added"}
 
     @staticmethod
     def get_all_meals(data):
-        # Simulate retrieving meals
+        """
+        Retrieves all meals for a specific user.
+        """
         userId = data.get("userId")
-        meals = mealManager.GetMeals(db, userId)
+        meals = MealManager.get_meals(db, userId)  # Correctly calls the method
         return meals
+
+    @staticmethod
+    def log_meal(sqlInterface, userId, mealType, calories, protein, carbs, fats, date):
+        """
+        Logs a meal to the database.
+        """
+        sqlInterface.AddItem(
+            "meals", 
+            ("userId", "mealType", "calories", "protein", "carbs", "fats", "date"),
+            (userId, mealType, calories, protein, carbs, fats, date)
+        )
+
+    @staticmethod
+    def get_meals(sqlInterface, userId):
+        """
+        Retrieves meals for a specific user from the database.
+        """
+        return sqlInterface.GetItemsBasedOnAttribute("meals", "userId", userId)
