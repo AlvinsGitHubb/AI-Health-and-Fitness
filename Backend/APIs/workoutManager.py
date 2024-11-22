@@ -1,7 +1,7 @@
 # workoutManager.py
 
 # Correct imports
-from MySQLDatabase.MySQLInterface import MySQLInterface
+from MySQLDatabase import MySQLInterface, workoutManager
 from MySQLDatabase.user import Login, CreateAccount
 from APIs.config import DATABASE_CONFIG
 
@@ -28,7 +28,7 @@ class WorkoutManager:
         date = data.get("date")
         sets = data.get("sets")
 
-        WorkoutManager.LogWorkout(db, userId, workoutType, caloriesBurned, duration, date, sets)
+        workoutManager.LogWorkout(db, userId, workoutType, caloriesBurned, duration, date, sets)
 
         return {"status": "Workout added"}
 
