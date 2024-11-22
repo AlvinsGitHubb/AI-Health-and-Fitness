@@ -36,5 +36,5 @@ class WorkoutManager:
     def get_all_workouts(data):
         # Simulate retrieving workouts
         userId = data.get("userId")
-        meals = workoutManager.GetWorkouts(db, userId)
-        return meals
+        workouts = workoutManager.GetWorkouts(db, userId)
+        return workouts

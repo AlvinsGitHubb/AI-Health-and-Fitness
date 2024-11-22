@@ -14,8 +14,12 @@ def GetWorkouts(sqlInterface, userId):
     workouts = []
     for x in _workouts:
         _sets = GetSets(sqlInterface, x[0])
-        workouts.append((x, _sets))
-    return workouts #This is a list where the first value (workouts[0]) is the wokrout details and the second value (workouts[1]) is a list of workout set details
+        workout = [x[0], x[1], x[2], x[3], str(x[4]), x[5], x[6]]
+        for y in _sets:
+            for z in y:
+                workout.append(z)
+        workouts.append(workout)
+    return workouts #This is a list where the first value (workouts[0]) is the workout details and the second value (workouts[1]) is a list of workout set details
 
 def GetSets(sqlInterface, workoutId):
     _sets = sqlInterface.GetItemsBasedOnAttribute("workoutSets", "workoutId", workoutId)
