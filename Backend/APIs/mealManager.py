@@ -1,6 +1,6 @@
 # mealManager.py
 
-from MySQLDatabase.MySQLInterface import MySQLInterface
+from MySQLDatabase import MySQLInterface, mealManager
 from APIs.config import DATABASE_CONFIG
 
 # Initialize database connection
@@ -26,7 +26,7 @@ class MealManager:
         fats = data.get("fats")
         date = data.get("date")
         
-        MealManager.log_meal(db, userId, mealType, calories, protein, carbs, fats, date)
+        mealManager.LogMeal(db, userId, mealType, calories, protein, carbs, fats, date)
         return {"status": "Meal added"}
 
     @staticmethod
@@ -35,23 +35,5 @@ class MealManager:
         Retrieves all meals for a specific user.
         """
         userId = data.get("userId")
-        meals = MealManager.get_meals(db, userId)  # Correctly calls the method
+        meals = mealManager.GetMeals(db, userId)  # Correctly calls the method
         return meals
-
-    @staticmethod
-    def log_meal(sqlInterface, userId, mealType, calories, protein, carbs, fats, date):
-        """
-        Logs a meal to the database.
-        """
-        sqlInterface.AddItem(
-            "meals", 
-            ("userId", "mealType", "calories", "protein", "carbs", "fats", "date"),
-            (userId, mealType, calories, protein, carbs, fats, date)
-        )
-
-    @staticmethod
-    def get_meals(sqlInterface, userId):
-        """
-        Retrieves meals for a specific user from the database.
-        """
-        return sqlInterface.GetItemsBasedOnAttribute("meals", "userId", userId)
