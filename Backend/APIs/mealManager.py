@@ -4,7 +4,7 @@ from MySQLDatabase import MySQLInterface, mealManager
 from APIs.config import DATABASE_CONFIG
 
 # Initialize database connection
-db = MySQLInterface(
+db = MySQLInterface.MySQLInterface(
     DATABASE_CONFIG["host"],
     DATABASE_CONFIG["user"],
     DATABASE_CONFIG["password"],

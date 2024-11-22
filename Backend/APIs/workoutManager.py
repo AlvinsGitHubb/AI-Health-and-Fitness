@@ -6,7 +6,7 @@ from MySQLDatabase.user import Login, CreateAccount
 from APIs.config import DATABASE_CONFIG
 
 
-db = MySQLInterface(
+db = MySQLInterface.MySQLInterface(
     DATABASE_CONFIG["host"],
     DATABASE_CONFIG["user"],
     DATABASE_CONFIG["password"],
