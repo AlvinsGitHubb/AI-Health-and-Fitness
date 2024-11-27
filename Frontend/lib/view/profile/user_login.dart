@@ -1,7 +1,5 @@
 import 'package:fitness/view/main_tab/main_tab_view.dart';
 import 'package:flutter/material.dart';
-// Import the profile view page
-
 
 void main() {
   runApp(const MyApp());
@@ -44,13 +42,15 @@ class NameInputPage extends StatefulWidget {
 class _NameInputPageState extends State<NameInputPage> {
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   String welcomeMessage = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Page, Enter Your Name:'),
+        title: const Text('Login Page, Enter Your Details:'),
         centerTitle: true,
       ),
       body: Padding(
@@ -97,6 +97,45 @@ class _NameInputPageState extends State<NameInputPage> {
               ),
             ),
             const SizedBox(height: 16),
+            TextField(
+              controller: emailController,
+              decoration: const InputDecoration(
+                labelText: 'Email',
+                labelStyle: TextStyle(color: Colors.black),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black),
+                ),
+                fillColor: Colors.white,
+                filled: true,
+              ),
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              controller: passwordController,
+              obscureText: true,
+              decoration: const InputDecoration(
+                labelText: 'Password',
+                labelStyle: TextStyle(color: Colors.black),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black),
+                ),
+                fillColor: Colors.white,
+                filled: true,
+              ),
+            ),
+            const SizedBox(height: 16),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromARGB(255, 196, 222, 240),
@@ -106,16 +145,22 @@ class _NameInputPageState extends State<NameInputPage> {
               ),
               onPressed: () {
                 setState(() {
-                  // Set the welcome message with user input
-                  welcomeMessage =
-                      'Welcome ${firstNameController.text} ${lastNameController.text}';
-                });
-                // After submission, navigate to the main page
-                Future.delayed(const Duration(seconds: 1), () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MainTabView()),
-                  );
+                  if (firstNameController.text.isEmpty ||
+                      lastNameController.text.isEmpty ||
+                      emailController.text.isEmpty ||
+                      passwordController.text.isEmpty) {
+                    welcomeMessage = 'Please fill in all fields!';
+                  } else {
+                    welcomeMessage =
+                        'Welcome ${firstNameController.text} ${lastNameController.text}';
+                    Future.delayed(const Duration(seconds: 1), () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MainTabView()),
+                      );
+                    });
+                  }
                 });
               },
               child: const Text('Submit'),
