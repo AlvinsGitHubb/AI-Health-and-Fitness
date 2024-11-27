@@ -1,0 +1,22 @@
+PODS:
+  - FlutterMacOS (1.0.0)
+  - simple_animation_progress_bar (0.0.1):
+    - FlutterMacOS
+
+DEPENDENCIES:
+  - FlutterMacOS (from `Flutter/ephemeral`)
+  - simple_animation_progress_bar (from `Flutter/ephemeral/.symlinks/plugins/simple_animation_progress_bar/macos`)
+
+EXTERNAL SOURCES:
+  FlutterMacOS:
+    :path: Flutter/ephemeral
+  simple_animation_progress_bar:
+    :path: Flutter/ephemeral/.symlinks/plugins/simple_animation_progress_bar/macos
+
+SPEC CHECKSUMS:
+  FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
+  simple_animation_progress_bar: d76494dba0304b6f0ca56d3657b54a0de7e3b6ed
+
+PODFILE CHECKSUM: 236401fc2c932af29a9fcf0e97baeeb2d750d367
+
+COCOAPODS: 1.15.2
