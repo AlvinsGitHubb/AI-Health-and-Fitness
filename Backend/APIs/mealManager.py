@@ -1,24 +1,39 @@
 # mealManager.py
+
+from MySQLDatabase import MySQLInterface, mealManager
+from APIs.config import DATABASE_CONFIG
+
+# Initialize database connection
+db = MySQLInterface.MySQLInterface(
+    DATABASE_CONFIG["host"],
+    DATABASE_CONFIG["user"],
+    DATABASE_CONFIG["password"],
+    DATABASE_CONFIG["database"]
+)
+db.ConnectToDatabase()
+
 class MealManager:
     @staticmethod
     def add_meal(data):
-        # Simulate adding a meal recommendation
-        meal = {
-            "id": 1,
-            "name": data.get("name", "Balanced Meal"),
-            "calories": data.get("calories", 500),
-            "protein": data.get("protein", 30),
-            "carbs": data.get("carbs", 50),
-            "fats": data.get("fats", 15),
-            "notes": data.get("notes", "Recommended meal based on dietary needs.")
-        }
-        return {"status": "Meal added", "meal": meal}
+        """
+        Adds a meal to the database.
+        """
+        userId = data.get("userId")
+        mealType = data.get("mealType")
+        calories = data.get("calories")
+        protein = data.get("protein")  # Fixed typo: 'protien' to 'protein'
+        carbs = data.get("carbs")
+        fats = data.get("fats")
+        date = data.get("date")
+        
+        mealManager.LogMeal(db, userId, mealType, calories, protein, carbs, fats, date)
+        return {"status": "Meal added"}
 
     @staticmethod
-    def get_all_meals():
-        # Simulate retrieving meals
-        meals = [
-            {"id": 1, "name": "Salad with Grilled Chicken", "calories": 400},
-            {"id": 2, "name": "Pasta Primavera", "calories": 600}
-        ]
+    def get_all_meals(data):
+        """
+        Retrieves all meals for a specific user.
+        """
+        userId = data.get("userId")
+        meals = mealManager.GetMeals(db, userId)  # Correctly calls the method
         return meals
