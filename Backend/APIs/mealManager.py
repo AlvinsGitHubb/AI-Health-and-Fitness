@@ -1,6 +1,7 @@
 # mealManager.py
 
-from MySQLDatabase import MySQLInterface, mealManager
+from MySQLDatabase import MySQLInterface, mealManager, user
+from AI import openAPIIntegration, aiModelAccess
 from APIs.config import DATABASE_CONFIG
 
 # Initialize database connection
@@ -37,3 +38,13 @@ class MealManager:
         userId = data.get("userId")
         meals = mealManager.GetMeals(db, userId)  # Correctly calls the method
         return meals
+    
+    @staticmethod
+    def get_meal_recommendation(data):
+        userId = data.get("userId")
+        cuisine = data.get("cuisine")
+        dietaryRestrictions = data.get("dietaryRestrictions")
+        ingredients = data.get("ingredients")
+        fitnessGoal = user.GetUserAttribute(db, "fitnessGoal", userId)
+        recommendation = openAPIIntegration.GetMealRecommendation(cuisine, dietaryRestrictions, ingredients, fitnessGoal)
+        return recommendation
