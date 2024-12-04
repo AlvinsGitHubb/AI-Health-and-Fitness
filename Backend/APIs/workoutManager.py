@@ -1,7 +1,8 @@
 # workoutManager.py
 
 # Correct imports
-from MySQLDatabase import MySQLInterface, workoutManager
+from MySQLDatabase import MySQLInterface, workoutManager, user
+from AI import openAPIIntegration, aiModelAccess
 from MySQLDatabase.user import Login, CreateAccount
 from APIs.config import DATABASE_CONFIG
 
@@ -38,3 +39,13 @@ class WorkoutManager:
         userId = data.get("userId")
         workouts = workoutManager.GetWorkouts(db, userId)
         return workouts
+    
+    @staticmethod
+    def get_workout_recommendation(data):
+        userId = data.get("userId")
+        userData = user.GetUserAttributesForAI(db, userId)
+        workoutType = aiModelAccess.GetWorkoutType(userData)
+        exercises = aiModelAccess.GetExercises(userData)
+        lastExcercise = data.get("lastExercise")
+        recommendation = openAPIIntegration.GetWorkoutRecommendation(workoutType, exercises, lastExcercise, db, userId)
+        return recommendation

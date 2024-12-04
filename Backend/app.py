@@ -67,6 +67,18 @@ def get_meals():
         return jsonify(meals), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+@app.route('/api/workout/recommendation', methods=['GET'])
+def get_meal_recommendation():
+    userId = request.args.get("userId")
+    cuisine = request.args.get("cuisine")
+    dietaryRestrictions = request.args.get("dietaryRestrictions")
+    ingredients = request.args.get("ingredients")
+    try:
+        meal = MealManager.get_meal_recommendation({"userId": userId, "cuisine": cuisine, "dietaryRestrictions": dietaryRestrictions, "ingredients": ingredients})
+        return jsonify(meal), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 # Add a Workout API endpoint
 @app.route('/api/workout/add', methods=['POST'])
@@ -87,6 +99,17 @@ def get_workouts():
         return jsonify(workouts), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+@app.route('/api/workout/recommendation', methods=['GET'])
+def get_workout_recommendation():
+    userId = request.args.get("userId")
+    lastExercise = request.args.get("lastExercise")
+    try:
+        workout = WorkoutManager.get_workout_recommendation({"userId": userId, "lastExercise": lastExercise})
+        return jsonify(workout), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
