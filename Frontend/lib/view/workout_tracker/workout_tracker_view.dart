@@ -62,7 +62,6 @@ class _WorkoutTrackerViewState extends State<WorkoutTrackerView> {
               backgroundColor: Colors.transparent,
               centerTitle: true,
               elevation: 0,
-              // pinned: true,
               leading: InkWell(
                 onTap: () {
                   Navigator.pop(context);
@@ -127,63 +126,6 @@ class _WorkoutTrackerViewState extends State<WorkoutTrackerView> {
                     lineTouchData: LineTouchData(
                       enabled: true,
                       handleBuiltInTouches: false,
-                      touchCallback:
-                          (FlTouchEvent event, LineTouchResponse? response) {
-                        if (response == null || response.lineBarSpots == null) {
-                          return;
-                        }
-                        // if (event is FlTapUpEvent) {
-                        //   final spotIndex =
-                        //       response.lineBarSpots!.first.spotIndex;
-                        //   showingTooltipOnSpots.clear();
-                        //   setState(() {
-                        //     showingTooltipOnSpots.add(spotIndex);
-                        //   });
-                        // }
-                      },
-                      mouseCursorResolver:
-                          (FlTouchEvent event, LineTouchResponse? response) {
-                        if (response == null || response.lineBarSpots == null) {
-                          return SystemMouseCursors.basic;
-                        }
-                        return SystemMouseCursors.click;
-                      },
-                      getTouchedSpotIndicator:
-                          (LineChartBarData barData, List<int> spotIndexes) {
-                        return spotIndexes.map((index) {
-                          return TouchedSpotIndicatorData(
-                            FlLine(
-                              color: Colors.transparent,
-                            ),
-                            FlDotData(
-                              show: true,
-                              getDotPainter: (spot, percent, barData, index) =>
-                                  FlDotCirclePainter(
-                                radius: 3,
-                                color: Colors.white,
-                                strokeWidth: 3,
-                                strokeColor: TColor.secondaryColor1,
-                              ),
-                            ),
-                          );
-                        }).toList();
-                      },
-                      touchTooltipData: LineTouchTooltipData(
-                        getTooltipColor: (lineBarSpot) => TColor.secondaryColor1,
-                        tooltipRoundedRadius: 20,
-                        getTooltipItems: (List<LineBarSpot> lineBarsSpot) {
-                          return lineBarsSpot.map((lineBarSpot) {
-                            return LineTooltipItem(
-                              "${lineBarSpot.x.toInt()} mins ago",
-                              const TextStyle(
-                                color: Colors.white,
-                                fontSize: 10,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            );
-                          }).toList();
-                        },
-                      ),
                     ),
                     lineBarsData: lineBarsData1,
                     minY: -0.5,
@@ -271,15 +213,7 @@ class _WorkoutTrackerViewState extends State<WorkoutTrackerView> {
                             type: RoundButtonType.bgGradient,
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
-                            onPressed: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (context) =>
-                              //         const ActivityTrackerView(),
-                              //   ),
-                              // );
-                            },
+                            onPressed: () {},
                           ),
                         )
                       ],
@@ -288,6 +222,53 @@ class _WorkoutTrackerViewState extends State<WorkoutTrackerView> {
                   SizedBox(
                     height: media.width * 0.05,
                   ),
+                  // Log Your Workout Section
+                  Text(
+                    "Log Your Workout",
+                    style: TextStyle(
+                      color: TColor.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: "Enter your workout details...",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      fillColor: TColor.lightGray,
+                      filled: true,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  // AI Recommendations Section
+                  Text(
+                    "AI Recommendations",
+                    style: TextStyle(
+                      color: TColor.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Container(
+                    padding: const EdgeInsets.all(15),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: TColor.lightGray,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Text(
+                      "AI Recommendations will appear here.",
+                      style: TextStyle(
+                        color: TColor.gray,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 30),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -342,10 +323,16 @@ class _WorkoutTrackerViewState extends State<WorkoutTrackerView> {
                       itemBuilder: (context, index) {
                         var wObj = whatArr[index] as Map? ?? {};
                         return InkWell(
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) =>  WorkoutDetailView( dObj: wObj, ) ));
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => WorkoutDetailView(
+                                          dObj: wObj,
+                                        )));
                           },
-                          child:  WhatTrainRow(wObj: wObj) );
+                          child: WhatTrainRow(wObj: wObj),
+                        );
                       }),
                   SizedBox(
                     height: media.width * 0.1,
@@ -358,13 +345,6 @@ class _WorkoutTrackerViewState extends State<WorkoutTrackerView> {
       ),
     );
   }
-
-  LineTouchData get lineTouchData1 => LineTouchData(
-        handleBuiltInTouches: true,
-        touchTooltipData: LineTouchTooltipData(
-          getTooltipColor: (lineBarSpot) => Colors.blueGrey.withOpacity(0.8),
-        ),
-      );
 
   List<LineChartBarData> get lineBarsData1 => [
         lineChartBarData1_1,
