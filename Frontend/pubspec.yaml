@@ -19,6 +19,7 @@ dependencies:
   readmore: ^3.0.0
   calendar_agenda: ^0.0.2+3
   intl: ^0.17.0
+  http: ^1.0.0
 
 dev_dependencies:
   flutter_test:

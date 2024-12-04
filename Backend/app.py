@@ -8,6 +8,9 @@ from APIs.workoutManager import WorkoutManager
 from APIs.mealManager import MealManager
 from APIs.config import DATABASE_CONFIG
 
+# Import AI recommendation logic
+from AI.openAPIIntegration import GetMealRecommendation
+
 import sys
 import os
 # Add the parent directory to the Python path
@@ -85,6 +88,25 @@ def get_workouts():
     try:
         workouts = WorkoutManager.get_all_workouts({"userId": userId})
         return jsonify(workouts), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# New API endpoint for AI meal recommendations
+@app.route('/api/meal/recommend', methods=['POST'])
+def recommend_meal():
+    data = request.json
+    try:
+        # Extract meal details from the request
+        cuisine = data.get("cuisine", "any")
+        dietary_restrictions = data.get("dietary_restrictions", [])
+        ingredients = data.get("ingredients", [])
+        fitness_goal = data.get("fitnessGoal", "maintain weight")
+
+        # Call the AI meal recommendation logic
+        recommendation = GetMealRecommendation(cuisine, dietary_restrictions, ingredients, fitness_goal)
+
+        # Return the recommendation as JSON
+        return jsonify({"recommendation": recommendation}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 

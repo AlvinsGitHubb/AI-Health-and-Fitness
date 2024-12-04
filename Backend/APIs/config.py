@@ -2,6 +2,6 @@
 DATABASE_CONFIG = {
     "host": "localhost",
     "user": "root",
-    "password": "*tr5d7Ka9q",
+    "password": "Alvin2003$",
     "database": "AIHealthAndFitnessDatabase2"
 }

@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ea64bece-4cd5-4535-aa17-4ff6a0aa11b4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/AI/openAPIIntegration.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/AI/openAPIIntegration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/APIs/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/APIs/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/android/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/lib/view/meal_planner/meal_schedule_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/lib/view/meal_planner/meal_schedule_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

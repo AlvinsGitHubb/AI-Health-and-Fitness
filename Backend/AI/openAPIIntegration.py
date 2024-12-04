@@ -2,7 +2,7 @@ from openai import OpenAI
 from MySQLDatabase import workoutManager
 import time
 
-client = OpenAI()#API key goes here)
+client = OpenAI(api_key="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")#API key goes here)
 max_retries = 2
 
 def MessageChatBot(message):
