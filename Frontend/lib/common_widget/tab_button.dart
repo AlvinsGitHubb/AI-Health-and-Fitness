@@ -7,7 +7,7 @@ class TabButton extends StatelessWidget {
   final bool isActive;
   final VoidCallback onTap;
 
-  const TabButton({
+  const TabButton({super.key, 
     required this.icon,
     required this.selectIcon,
     required this.isActive,
