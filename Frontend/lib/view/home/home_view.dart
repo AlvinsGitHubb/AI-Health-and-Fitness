@@ -127,11 +127,11 @@ class _HomeViewState extends State<HomeView> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Welcome Back,",
+                          "Nutrifit Pro",
                           style: TextStyle(color: TColor.gray, fontSize: 12),
                         ),
                         Text(
-                          "Stefani Wong",
+                          "Welcome Back!",
                           style: TextStyle(
                               color: TColor.black,
                               fontSize: 20,
